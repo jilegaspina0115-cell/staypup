@@ -1,12 +1,12 @@
 <?php
-// Use getenv() to securely fetch the variables you set in Railway
-$host = getenv('MYSQLHOST');
-$user = getenv('MYSQLUSER');
-$pass = getenv('MYSQLPASSWORD');
-$db   = getenv('MYSQLDATABASE');
-$port = getenv('MYSQLPORT');
-
-$conn = new mysqli($host, $user, $pass, $db, $port);
+// This tells PHP to look at the 'Variables' you set in Railway
+$conn = new mysqli(
+    getenv('MYSQLHOST'), 
+    getenv('MYSQLUSER'), 
+    getenv('MYSQLPASSWORD'), 
+    getenv('MYSQLDATABASE'), 
+    getenv('MYSQLPORT')
+);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
